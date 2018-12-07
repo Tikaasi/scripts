@@ -1,4 +1,13 @@
 FROM ubuntu
 RUN apt-get -y update
 RUN apt-get install git -y
-RUN git clone https://github.com/Tikaasi/scripts
+RUN apt-get install openjdk-8-jdk
+RUN apt-get install bc git-core gnupg flex bison gperf libsdl1.2-dev libesd0-dev libwxgtk2.8-dev squashfs-tools build-essential zip curl libncurses5-dev zlib1g-dev openjdk-8-jre openjdk-8-jdk pngcrush schedtool libxml2 libxml2-utils xsltproc lzop libc6-dev schedtool g++-multilib lib32z1-dev lib32ncurses5-dev lib32readline-gplv2-dev gcc-multilib maven tmux screen w3m ncftp
+RUN mkdir ~/bin
+RUN PATH=~/bin:$PATH
+RUN curl http://commondatastorage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
+RUN chmod a+x ~/bin/repo
+RUN mkdir ~/RR && cd ~/RR
+RUN repo init -u https://github.com/ResurrectionRemix/platform_manifest.git -b oreo
+RUN repo sync -f --force-sync --no-clone-bundle
+
