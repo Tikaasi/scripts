@@ -7,7 +7,7 @@ RUN PATH=~/bin:$PATH
 RUN curl http://commondatastorage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
 RUN chmod a+x ~/bin/repo
 RUN mkdir ~/RR && cd ~/RR
-RUN sudo apt get install repo -y
+RUN apt get install repo -y
 RUN repo init -u https://github.com/ResurrectionRemix/platform_manifest.git -b oreo
 RUN repo sync -f --force-sync --no-clone-bundle
 
